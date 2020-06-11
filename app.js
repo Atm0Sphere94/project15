@@ -6,7 +6,8 @@ const helmet = require('helmet');
 
 const app = express();
 
-const { PORT, connectDB } = require('./config');
+const { PORT } = require('./config');
+const { connectDB } = require('./connectdb');
 const routeAll = require('./routes/routes');
 const { createUser, login } = require('./controllers/users');
 

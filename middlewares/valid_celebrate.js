@@ -36,6 +36,7 @@ const loginValidator = celebrate({
     email: Joi.string().required().email()
       .error(errors.login),
     password: Joi.string().required().min(8)
+      .regex(/[a-z0-9-+_=&?!.,%^:;<>#@*()~'"|\\/]{8,24}/i)
       .error(errors.login),
   }),
 });
