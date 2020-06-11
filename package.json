@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "deploy": "npm run build && scp -r ./dist/* mesto@45.84.224.210:/home/mesto_front"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
