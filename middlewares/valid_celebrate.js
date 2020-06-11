@@ -1,6 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 const BadRequestError = require('../errors/badRequestError');
-const UnauthorizedError = require('../errors/unauthorizedError');
+const UnauthorizedError = require('../errors/UnauthorizedError');
 
 const errors = {
   about: new BadRequestError('"About" must contain 2 to 30 symbols'),
@@ -49,14 +49,6 @@ const profileUpdateValidator = celebrate({
   }),
 });
 
-const avatarUpdateValidator = celebrate({
-  body: Joi.object().keys({
-    avatar: Joi.string().required()
-      .regex(/^(https?):\/\/(w{3}\.)?(?!www)(([А-ЯЁа-яёA-Za-z0-9_-]+\.[А-ЯЁа-яёA-Za-z0-9_-]+(\.[А-ЯЁа-яёA-Za-z_-]+){0,2})|(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)))(:\d{2,5})?(\/[A-Za-z0-9/\-_.#:?&~/=]*)?$/)
-      .error(errors.avatar),
-  }),
-});
-
 
 const cardValidator = celebrate({
   body: Joi.object().keys({
@@ -79,7 +71,6 @@ module.exports = {
   userValidator,
   loginValidator,
   cardValidator,
-  avatarUpdateValidator,
   profileUpdateValidator,
   mongooseObjectIdValidator,
 };
