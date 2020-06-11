@@ -1,15 +1,16 @@
 {
-  "name": "project14",
+  "name": "project15",
   "version": "1.0.0",
   "description": "Backend projectwork of YPrak - Authorization module",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "deploy": "npm run build && scp -r ./dist/* mesto@45.84.224.210:/home/mesto_front"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Atm0Sphere94/project14.git"
+    "url": "git+https://github.com/Atm0Sphere94/project15.git"
   },
   "keywords": [
     "Back:",
@@ -20,9 +21,9 @@
   "author": "Oleg Malyshev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Atm0Sphere94/project14/issues"
+    "url": "https://github.com/Atm0Sphere94/project15/issues"
   },
-  "homepage": "https://github.com/Atm0Sphere94/project14#readme",
+  "homepage": "https://github.com/Atm0Sphere94/project15#readme",
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
@@ -31,6 +32,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "celebrate": "^12.1.1",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-winston": "^4.0.3",

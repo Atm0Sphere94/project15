@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookies = require('cookie-parser');
+const { errors } = require('celebrate');
 const helmet = require('helmet');
 
 const app = express();
@@ -12,6 +13,7 @@ const { createUser, login } = require('./controllers/users');
 const errorHandler = require('./errors/errorHandler');
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middleware/logger');
+const { userValidator, loginValidator } = require('./middleware/valid_celebrate');
 
 
 connectDB();
@@ -29,12 +31,13 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.post('/signup', createUser);
-app.post('/signin', login);
+app.post('/signup',userValidator, createUser);
+app.post('/signin', loginValidator, login);
 app.use(auth);
 app.use('/', routeAll);
 
 app.use(errorLogger);
+app.use(errors());
 app.use(errorHandler);
 
 app.listen(PORT, () => {
