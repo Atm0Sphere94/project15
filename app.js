@@ -13,7 +13,7 @@ const { createUser, login } = require('./controllers/users');
 const errorHandler = require('./errors/errorHandler');
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { userValidator, loginValidator } = require('./middleware/valid_celebrate');
+const { userValidator, loginValidator } = require('./middlewares/valid_celebrate');
 
 
 connectDB();
